@@ -166,56 +166,74 @@ function rentalCarCost(d) {
   }
 
 
+//22.03.2021 - Solved
+
+function fixTheMeerkat(arr) {
+    return [arr[0], arr[1], arr[2]] = [arr[2], arr[1], arr[0]];
+    }
+    
+    
+    console.log(fixTheMeerkat(["tail", "body", "head"]));
+    console.log(fixTheMeerkat(["tails", "body", "heads"]));
+    console.log(fixTheMeerkat(["bottom", "middle", "top"]));
+    console.log(fixTheMeerkat(["lower legs", "torso", "upper legs"]));
+    console.log(fixTheMeerkat(["ground", "rainbow", "sky"]));
+    
+    
 
 
+//25-03-21 Solved
 
 
+function findSmallestInt(args) {
+    const TheResult = args.sort(function(a,b) {
+        return (a - b);
+    })
+    return args[0];
+      }
+    
+    
+    
+    console.log(findSmallestInt([78,56,232,12,8]));
+    console.log(findSmallestInt([78,56,232,12,18]));
+    console.log(findSmallestInt([78,56,232,412,228]));
+    console.log(findSmallestInt([78,56,232,12,0]));
+    console.log(findSmallestInt([78,56,232,12,0]));
+    
 
 
+// 26/03/21 Solved
 
 
+function greet (name, owner) {
+    return name === owner ? "Hello boss" : "Hello guest";
+  }
+  
+  console.log(greet('Daniel', 'Daniel'));
+  console.log(greet('Greg', 'Daniel'));
+  
+
+// 29/03/21
 
 
+const reverseSeq = n => {
+    let arr = [];
+  
+    for (i = 1; i <= n; i++) {
+         arr.push(i);
+    }
+    return arr.reverse();
+  };
+  
+  console.log(reverseSeq(5)); // [5, 4, 3, 2, 1]
 
 
+// Solved
+
+// You are given a function that should insert an asterisk (*) between every pair of even digits in the given input, and
+// return it as a string. If the input is a sequence, concat the elements first as a string.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-29.06.20
-
-
-You are given a function that should insert an asterisk (*) between every pair of even digits in the given input, and
-return it as a string. If the input is a sequence, concat the elements first as a string.
-
-
-<script>
     function checkEven(input) {
         var newArray = [];
         var i;
@@ -229,99 +247,6 @@ return it as a string. If the input is a sequence, concat the elements first as 
     }
 
     console.log(checkEven([1, 2, 3, 4, 5, 6, 7, 8, 9]));
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function toCamelCase(str) {
-// var newStr = '';
-// var i;
-// for (i = 1; i <= str.lengh; i++) { // if ((str[i]=str['-'])) { // } // } // return newStr; // } //
-    console.log('The-Stealth-Warrior'); </script> <!-- // function checkEven(input) { // var newArray=[]; // var i; //
-    for (i=1; i <=input.length; i++) { // newArray.push(input[i]); // if (input[i] % 2===0 || input[i] % 2===2) { //
-    newArray.push('*'); // } // } // return newArray; // } // console.log(checkEven([1, 2, 3, 4, 5, 6, 7, 8, 9])); -->
-
-    <!-- // newStr.replace('str[i].uppercase'); -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- // function toCamelCase() {
-// var myStr = 'The-Stealth-Warrior';
-// var newStr = myStr.replace(/-/g, '');
-// document.getElementById('war').innerHTML = newStr;
-// } -->
-
-
-
-    // var someLetter = someText.innerText.split('');
-    // var someWord = someText.innerText.split('-');
-
-    function toCamelCase(someWord) {
-    // var someText = document.querySelector('p');
-    someWord.innerText.split('-');
-    var upperWord = someWord.toUpperCase();
-    return toCamelCase;
-    }
-
-    console.log(toCamelCase('The - Stealth - Warrior'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -346,22 +271,6 @@ Case, also often referred to as Pascal case). -->
         console.log(toCamelCase('The-Stealth-Warrior'));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         30.06 .20
 
 
@@ -371,40 +280,6 @@ Case, also often referred to as Pascal case). -->
         function getMinMax(arr) {
             return [Math.min(...arr), Math.max(...arr)]; // 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         2.07 .20
@@ -598,7 +473,6 @@ Case, also often referred to as Pascal case). -->
    // 11.02.2021 - solved
 
 
-   <script>
 
 function findDifference(a, b) {
 const aTotal = a.reduce(myFunction);
@@ -673,6 +547,6 @@ for(i = 0; i <= reverseQueue.length; i++) {
 
 
 
-   </script>
+
 
   

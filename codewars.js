@@ -544,7 +544,217 @@ for(i = 0; i <= reverseQueue.length; i++) {
 };
 
 
+function vowelIndices(word) {
+	let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
+	const splitwords = word.toLowerCase().split('');
+	var result = [];
+
+	for (var i = 0; i < splitwords.length; i++) {
+		if (vowels.includes(splitwords[i])) {
+			result.push(i + 1);
+		}
+	}
+	return result;
+}
+
+console.log(vowelIndices('orange')); /// [1,3,6]
+
+//28.04.21 - level 6 - Luhn algorithm (with youtube tutorial)
+
+function validate(n) {
+	let digits = n.toString().split('').map(Number);
+
+	//check if it's an even number
+	if (digits.length % 2 === 0) {
+		digits = digits.map((digit, idx) => (idx % 2 === 0 ? digit * 2 : digit));
+	} else {
+		digits = digits.map((digit, idx) => (idx % 2 === 1 ? digit * 2 : digit));
+	}
+
+	// fix the double digits
+
+	digits = digits.map((digit) => (digit > 9 ? digit - 9 : digit));
+
+	console.log(digits);
+
+	// sum the digits
+
+	const sum = digits.reduce((acc, digit) => (acc += digit), 0);
+	return sum % 10 === 0;
+}
+
+console.log(validate(123));
+console.log(validate(1));
+console.log(validate(2121));
+console.log(validate(1290));
+
+// Test.assertEquals(validate(123), false);
+// Test.assertEquals(validate(1), false);
+// Test.assertEquals(validate(2121), true);
+// Test.assertEquals(validate(1230), true);
+
+// Fizz Buzz game
+
+function fizzBuzz(num) {
+	for (var i = 0; i < num; i++) {
+		num % 15 === 0
+			? (num = 'fizz buzz')
+			: num % 3 === 0
+			? (num = 'fizz')
+			: num % 5 === 0
+			? (num = 'buzz')
+			: num;
+	}
+	return num;
+}
+
+console.log(fizzBuzz(2));
+
+//09.05.21
+
+function validSpacing(s) {
+	const revarray = s.split('').reverse();
+	const thearray = s.split('');
+	const re = /\s\s+/g;
+
+	if (thearray[0] === ' ' || revarray[0] === ' ' || re.test(s)) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+//10.05.21
+
+// const day = Math.floor(time / (3600 * 24));
+// const leftforHours = time - (day * (3600 * 24));
+
+// const hours = Math.floor(leftforHours / 3600);
+// const leftForMinutes = leftforHours - (hours * 3600);
+
+// const minutes = Math.floor(leftForMinutes / 60);
+// const leftForSeconds = leftForMinutes - (minutes * 60);
+
+// const dayHour = time % (3600 * 24);
+
+// // const days = time - ()
+// console.log(dayHour);
+function convertTime(time) {
+	let res = '';
+	const days = Math.floor(time / (3600 * 24));
+	const hours = Math.floor((time % (3600 * 24)) / 3600);
+	const minutes = Math.floor((time - (3600 * 24 * days + 3600 * hours)) / 60);
+	const seconds = minutes % 60;
+	return res.concat(`${days}, ${hours}, ${minutes}, ${seconds}`);
+}
+
+console.log(convertTime(90061)); // 1, 1, 1, 1
+
+// assertEquals("-1 -1 -1 -1", TimeUtils.convertTime(-90061));
+
+// 12/05/21
+
+function smallEnough(a, limit) {
+	return a.every((someNum) => someNum < limit);
+}
+
+console.log(smallEnough([66, 101], 200));
+
+// describe("Example tests",() =>{
+// Test.assertEquals(smallEnough([66, 101], 200), true);
+// Test.assertEquals(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100), false);
+// Test.assertEquals(smallEnough([101, 45, 75, 105, 99, 107], 107), true);
+// Test.assertEquals(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120), true);
+// })
+
+// 13/05/21
+
+const addBinary = (a, b) => (a + b).toString(2);
+
+console.log(addBinary(1, 1)); // 11
+
+// describe("addBinary(1,2)", function() {
+//   var results1 = addBinary(1,1);
+//   it("Should return something that isn't falsy", function() {
+//     Test.expect(results1, "Something is wrong, no results!");
+//   });
+//   it("Should return \"11\"", function() {
+//     Test.assertEquals(results1, "11");
+//   });
+// });
+
+//15/05/21
+
+function largestPairSum(numbers) {
+	const sorted = numbers.sort(function (a, b) {
+		return a - b;
+	});
+	const almostDone = sorted.reverse().splice(0, 2);
+	return almostDone.reduce((total, num) => total + num);
+}
+
+console.log(largestPairSum([10, 14, 2, 23, 19]));
+console.log(largestPairSum([-100, -29, -24, -19, 19]));
+console.log(largestPairSum([1, 2, 3, 4, 6, -1, 2]));
+console.log(largestPairSum([-10, -8, -16, -18, -19]));
+
+// const { assert } = require("chai")
+
+// describe("Basic tests", () => {
+//   it("Testing for fixed tests", () => {
+//     assert.strictEqual(largestPairSum([10,14,2,23,19]), 42 , "Sum should be 42");
+//     assert.strictEqual(largestPairSum([-100,-29,-24,-19,19]), 0 , "Sum should be 0");
+//     assert.strictEqual(largestPairSum([1,2,3,4,6,-1,2]), 10 , "Sum should be 10");
+//     assert.strictEqual(largestPairSum([-10, -8, -16, -18, -19]), -18 , "Sum should be -18");
+//     })
+//   })
+
+// 16/05/21
+
+function printerError(s) {
+	let re = /[^a-m]/g;
+	let recheck = s.match(re);
+
+	if (recheck != null) {
+		return `${s.match(re).length}/${s.length}`;
+	} else {
+		return `0/${s.length}`;
+	}
+}
+
+//  oneliner
+
+const printerError = (s) =>
+	`${s.match(/[^a-m]/g) === null ? 0 : s.match(/[^a-m]/g).length}/${s.length}`;
+
+console.log(
+	printerError('aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz')
+);
+
+// var s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
+//     Test.assertEquals(printerError(s), "3/56")
+
+// 18/05/21
+
+function strangeMath(n, k) {
+	let toPush = [];
+	for (i = 0; i < n; i++) {
+		toPush.push(i + 1);
+	}
+	const almost = toPush.sort();
+	return almost.indexOf(k) + 1;
+}
+
+console.log(strangeMath(15, 5));
+
+// 1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9.
+
+//   assert.equal(strangeMath(11, 2), 4);
+
+//   assert.equal(strangeMath(15, 5), 11);
+
+//   assert.equal(strangeMath(15, 15), 7);
 
 
 

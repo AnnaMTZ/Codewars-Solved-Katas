@@ -306,30 +306,6 @@ Case, also often referred to as Pascal case). -->
 
         console.log(filter_list([1, 'a', 'b', 0, 15]));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Solved
 
         function warsMatch(input) {
@@ -757,6 +733,30 @@ console.log(strangeMath(15, 5));
 //   assert.equal(strangeMath(15, 15), 7);
 
 
+// 31/05/21 Solved
+
+function evenLast(numbers) {
+	if (numbers.length === 0) {
+		return 0;
+	} else {
+		const res = numbers.filter((number, index) => {
+			return index % 2 === 0 ? number : '';
+		});
+		return res.reduce((acc, curVal) => {
+			return (acc + curVal) * numbers[numbers.length - 1];
+		});
+	}
+}
+
+// 31/05.21 - Solved
+
+function oddOrEven(array) {
+	return array.length !== 0 || array.reduce((a, b) => a + b, 0) % 2 // without initialValue (0), the callback with start at '1' instead of '0';
+		? 'odd'
+		: 'even';
+}
+
+console.log(oddOrEven([]));
 
 
   
